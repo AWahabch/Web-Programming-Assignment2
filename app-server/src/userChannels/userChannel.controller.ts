@@ -24,6 +24,17 @@ export default class UserChannelController {
         }
     }
 
+    public async updateUserChannel(request: Hapi.Request, reply: Hapi.ReplyNoContinue) {
+        const model: IUserChannel = request.payload;
+
+        try {
+            let userChannel: IUserChannel = await this.database.userChannelModel.findByIdAndUpdate(model._id, model);
+            userChannel = await this.database.userChannelModel.findById(model._id);
+            return reply(userChannel);
+        } catch (error) {
+            return reply(Boom.badImplementation(error));
+        }
+    }
 
     public async deleteUserChannel(request: Hapi.Request, reply: Hapi.ReplyNoContinue) {
         try {
