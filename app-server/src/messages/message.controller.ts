@@ -14,12 +14,12 @@ export default class MessageController {
         this.configs = configs;
     }
 
-    public async createMessageFromSocket(userId, channelId, content, image) {
+    public async createMessageFromSocket(userId, channelId, type, content) {
         const model = {
             userId,
             channelId,
-            content,
-            image
+            type,
+            content
         };
         try {
             let message: any = await this.database.messageModel.create(model);
@@ -43,7 +43,22 @@ export default class MessageController {
         try {
             const channelId = request.params['channelId'];
             const messages = await this.database.messageModel.find({ "channelId": channelId });
-            reply(messages);
+            var results = [];
+            await Promise.all(messages.map(async (item) => {
+                var user = await this.database.userModel.findById(item.userId);
+                results.push({
+                    _id: item._id,
+                    type: item.type,
+                    content: item.content,
+                    user:{
+                        id: user._id,
+                        email: user.email,
+                        username: user.username,
+                        imageUrl: user.imageUrl
+                    }
+                });
+            }));
+            reply(results);
         } catch (error) {
             return reply(Boom.badImplementation(error));
         }

@@ -62,7 +62,16 @@ export default class GroupController {
     public async listGroup(request: Hapi.Request, reply: Hapi.ReplyNoContinue) {
         try {
             const groups = await this.database.groupModel.find({});
-            reply(groups);
+            var results = [];
+            await Promise.all(groups.map(async (item) => {
+                const channels = await this.database.channelModel.find({ "groupId": item._id });
+                results.push({
+                    _id: item._id,
+                    name: item.name,
+                    channels: channels,
+                });
+            }));
+            reply(results);
         } catch (error) {
             return reply(Boom.badImplementation(error));
         }

@@ -6,14 +6,14 @@ exports.message = async function (serverConfigs, database, socket, message) {
     var msg = JSON.parse(message);
     var userId = msg.userId;
     var channelId = msg.channelId;
-    var text = msg.text;
-    var image = msg.image;
+    var type = msg.type;
+    var content = msg.content;
     const messageController = new MessageController(serverConfigs, database);
     const userController = new UserController(serverConfigs, database);
     const channelController = new ChannelController(serverConfigs, database);
     var user = await userController.getUserById(userId);
     var channel = await channelController.getChannelById(channelId);
-    messageController.createMessageFromSocket(userId, channelId, text, image);
+    messageController.createMessageFromSocket(userId, channelId, type, content);
     const fullMsg = {
         user: {
             username: user.username,
@@ -24,8 +24,8 @@ exports.message = async function (serverConfigs, database, socket, message) {
             channelId: channelId,
             name: channel.name,
         },
-        text,
-        image
+        type,
+        content
     };
     socket.broadcast.emit('message', JSON.stringify(fullMsg));
 };

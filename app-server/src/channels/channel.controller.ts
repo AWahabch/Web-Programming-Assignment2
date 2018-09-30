@@ -67,7 +67,17 @@ export default class ChannelController {
     public async listChannel(request: Hapi.Request, reply: Hapi.ReplyNoContinue) {
         try {
             const channels = await this.database.channelModel.find({});
-            reply(channels);
+            var results = [];
+            await Promise.all(channels.map(async (item) => {
+                var group = await this.database.groupModel.findById(item.groupId);
+                results.push({
+                    _id: item._id,
+                    name: item.name,
+                    groupId: item.groupId,
+                    groupName: group.name
+                });
+            }));
+            reply(results);
         } catch (error) {
             return reply(Boom.badImplementation(error));
         }
@@ -76,7 +86,7 @@ export default class ChannelController {
     public async listChannelByGroup(request: Hapi.Request, reply: Hapi.ReplyNoContinue) {
         try {
             const groupId = request.params['groupId'];
-            const channels = await this.database.channelModel.find({"groupId": groupId});
+            const channels = await this.database.channelModel.find({ "groupId": groupId });
             reply(channels);
         } catch (error) {
             return reply(Boom.badImplementation(error));
