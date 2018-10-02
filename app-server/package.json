@@ -12,7 +12,7 @@
     "test": "gulp test",
     "watch": "nodemon --watch build/src build/src/index.js"
   },
-  "author": "leonandov",
+  "author": "abdulwahab",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",

@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+body {    
+    font-family: sans-serif !important;
+    font-size: 1em;
+    letter-spacing: 0.1px;    
+    text-rendering: optimizeLegibility;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+    -webkit-font-smoothing: antialiased;
+    background-color: #93cdd4;
+}
+
+/*Add style for modal*/
+
+.modal-body{
+    padding: 10px;
+}
+
+.modal-body .row{
+    padding: 10px;
+    margin: 10px;
+}
+
+.modal-body .row label{
+    padding-top: 5px;
+}
