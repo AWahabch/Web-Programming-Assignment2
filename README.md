@@ -47,6 +47,7 @@ export interface IUser extends Mongoose.Document {
 ```
 
 ### Groups 
+
 This component stores the basic information about a group such as the name of the group and when it was created or updated. 
 
 ```
