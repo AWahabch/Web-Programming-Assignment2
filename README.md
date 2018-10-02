@@ -2,6 +2,20 @@
 
 # DOCUMENTATION
 
+## To Run
+
+```
+app-server
+- npm install
+- gulp build
+- npm run start
+
+app-client
+- npm install
+- ng serve
+
+```
+
 ## GIT	
 
 The code has two separate files front-end and back-end. Another file Init Data is there to give an inital data for the testing of the database integration with the chat app. It provides with pre stored users and their roles. The back-end part has all the main components and files inside the src file. Inside the src file are all the components devided by their roles, configurations, commons and plugins. The key entry point is in index.ts file which connects to database.ts and server.ts file. 
