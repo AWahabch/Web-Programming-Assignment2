@@ -9,10 +9,12 @@ The code has two separate files front-end and back-end. Another file Init Data i
 Git has been used to ensure version control and commits were made after finishing each component entirely. A better approach would be commiting after completion of an important code block so role back to old code.
 
 ## DATA STRUCTURES
+
 MongoDB database was used for storing and accessing the necessary information throughout this project. Previously JSON files were used to store information regarding user, channels, groups, chat and so on. That has been upgraded to a database for this assignment.
 Interfaces have been used to describe a virtual structure making type-checking a lot easier. Mongoose schema has been used to store the data for each component namely Users, user roles, user channels, user activities, roles, messages, groups, and channels. Below is a description for the schema used for each component.
 
 ### Users 
+
 This component stores information related to a user and has the necessary functions taking part in the overall implementation. 
 
 ```
