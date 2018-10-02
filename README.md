@@ -716,21 +716,26 @@ export interface IUserChannel extends Mongoose.Document {
 ### Logout
 
   The logout component has no html and simply reroutes the user to the login page using the Authentication Service.
+  
 ### Home 
 
   The home component makes up for the chatting part of the second page of the web app, with many connecting modal components (such as 
   the side navigation). On initialisation this component communicates with the Chat Service to display all the messages for 
   the current selected channel. Messages can be sent in this component using the Chat Service also.
+  
 ### Channel Management 
 
   This modal allows the user to create, edit and delete channels belonging to specific groups. All the functionality 
   comes from the Channel Service.  
+  
 ### Group Management
 
   This modal is the same as the above but for the groups, and all the functionality comes from the Group Service. 
+  
 ### User Management
 
   This modal is the same as the above but for the users, and all the functionality comes from the Users Service.
+  
 ### Navigation
 
   Two modals are here, on the top navigation the username is taken from local storage, when clicked on it will show
@@ -741,12 +746,15 @@ export interface IUserChannel extends Mongoose.Document {
 ### Channel
 
   Describes the structure of a channel, properties include id, name and group (must import Group model)
+  
 ### Group
 
   Describes the structure of a group, properties include id, name and channels (import Channel model, initially empty channel)
+  
 ### Role
 
   Describes the structure of a role, properties include id and name
+  
 ### User
 
   Describes the structure of a user, properties include id, channels and role (both initialised to be empty),
