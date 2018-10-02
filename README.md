@@ -16,6 +16,7 @@ Interfaces have been used to describe a virtual structure making type-checking a
 ### Users 
 
 This component stores information related to a user and has the necessary functions taking part in the overall implementation. 
+
 ```
 export const UserSchema = new Mongoose.Schema( 
   {
