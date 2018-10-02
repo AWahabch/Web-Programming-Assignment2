@@ -3,12 +3,12 @@
 # DOCUMENTATION
 
 ## GIT	
+
 The code has two separate files front-end and back-end. Another file Init Data is there to give an inital data for the testing of the database integration with the chat app. It provides with pre stored users and their roles. The back-end part has all the main components and files inside the src file. Inside the src file are all the components devided by their roles, configurations, commons and plugins. The key entry point is in index.ts file which connects to database.ts and server.ts file. 
 
 Git has been used to ensure version control and commits were made after finishing each component entirely. A better approach would be commiting after completion of an important code block so role back to old code.
 
 ## DATA STRUCTURES
-
 MongoDB database was used for storing and accessing the necessary information throughout this project. Previously JSON files were used to store information regarding user, channels, groups, chat and so on. That has been upgraded to a database for this assignment.
 Interfaces have been used to describe a virtual structure making type-checking a lot easier. Mongoose schema has been used to store the data for each component namely Users, user roles, user channels, user activities, roles, messages, groups, and channels. Below is a description for the schema used for each component.
 
