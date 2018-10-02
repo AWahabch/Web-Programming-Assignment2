@@ -71,6 +71,7 @@ export interface IGroup extends Mongoose.Document {
 ```
 
 ### Channels
+
 This component stores the basic information about a channel same as the group but this time with a group ID which makes the identification and implementation of the whole channel group infrastructure easier.
 
 ```
@@ -95,8 +96,8 @@ export interface IChannel extends Mongoose.Document {
 }
 ```
 
-
 ### Messages 
+
 This component is used to store each message and the information regarding the message, this helps in implementing the history function of the assignment. It stores the user’s ID, channel ID, the type of message, its content, the time of message and time of updating the message. 
 
 ```
